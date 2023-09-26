@@ -5,9 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
-
-import ReactQuill from "react-quill"
-import "react-quill/dist/quill.snow.css"
+import { Quill } from "../components/quill"
 
 const links = [
   {
@@ -47,6 +45,7 @@ const samplePageLinks = [
   { text: "TypeScript", url: "using-typescript" },
   { text: "Server Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
+  { text: "React Quill", url: "react-quill" },
 ]
 
 const moreLinks = [
@@ -73,10 +72,8 @@ const moreLinks = [
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => {
-  const [value, setValue] = React.useState("")
   return (
     <Layout>
-      <ReactQuill theme="snow" value={value} onChange={setValue} />
       <div className={styles.textCenter}>
         <StaticImage
           src="../images/example.png"
