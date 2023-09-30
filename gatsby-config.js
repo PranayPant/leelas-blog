@@ -17,8 +17,6 @@ module.exports = {
   plugins: [
     // allow abolute path imports
     "gatsby-plugin-root-import",
-    // tailwind
-    "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
