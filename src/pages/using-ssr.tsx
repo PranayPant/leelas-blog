@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "components/layout"
+import Seo from "components/seo"
 
 const UsingSSR = ({ serverData }) => {
   return (
@@ -11,9 +11,8 @@ const UsingSSR = ({ serverData }) => {
         This page is <b>rendered server-side</b>
       </h1>
       <p>
-        This page is rendered server side every time the page is requested.
-        Reload it to see a(nother) random photo from{" "}
-        <code>dog.ceo/api/breed/shiba/images/random</code>:
+        This page is rendered server side every time the page is requested. Reload it to see
+        a(nother) random photo from <code>dog.ceo/api/breed/shiba/images/random</code>:
       </p>
       <img
         style={{ width: "320px", borderRadius: "var(--border-radius)" }}

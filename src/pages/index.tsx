@@ -2,9 +2,8 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+import Layout from "components/layout"
+import Seo from "components/seo"
 
 const links = [
   {
@@ -38,8 +37,7 @@ const samplePageLinks = [
     text: "Page 2",
     url: "page-2",
     badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
+    description: "A simple example of linking to another page within a Gatsby site",
   },
   { text: "TypeScript", url: "using-typescript" },
   { text: "Server Side Rendering", url: "using-ssr" },
@@ -73,20 +71,23 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 const IndexPage = () => {
   return (
     <Layout>
-      <div className={styles.textCenter}>
-        <StaticImage
-          src="../images/example.png"
-          loading="eager"
-          width={64}
-          quality={95}
-          formats={["auto", "webp", "avif"]}
-          alt=""
-          style={{ marginBottom: `var(--space-3)` }}
-        />
-        <h1>
-          Welcome to <b>Gatsby!</b>
-        </h1>
-        <p className={styles.intro}>
+      <div>
+        <div className="flex justify-center items-center">
+          <StaticImage
+            src="../images/example.png"
+            loading="eager"
+            width={64}
+            quality={95}
+            formats={["auto", "webp", "avif"]}
+            alt=""
+            style={{ marginBottom: `var(--space-3)` }}
+          />
+          <h1 className="h-fit m-0 ml-5 mb-3">
+            Welcome to <b>Gatsby!</b>
+          </h1>
+        </div>
+
+        <p>
           <b>Example pages:</b>{" "}
           {samplePageLinks.map((link, i) => (
             <React.Fragment key={link.url}>
@@ -95,19 +96,16 @@ const IndexPage = () => {
             </React.Fragment>
           ))}
           <br />
-          Edit <code>src/pages/index.js</code> to update this page.
         </p>
+        <span>
+          Edit <code>src/pages/index.js</code> to update this page.
+        </span>
       </div>
-      <ul className={styles.list}>
+      <ul>
         {links.map(link => (
-          <li key={link.url} className={styles.listItem}>
-            <a
-              className={styles.listItemLink}
-              href={`${link.url}${utmParameters}`}
-            >
-              {link.text} ↗
-            </a>
-            <p className={styles.listItemDescription}>{link.description}</p>
+          <li key={link.url}>
+            <a href={`${link.url}${utmParameters}`}>{link.text} ↗</a>
+            <p>{link.description}</p>
           </li>
         ))}
       </ul>

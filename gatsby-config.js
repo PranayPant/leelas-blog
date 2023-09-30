@@ -15,6 +15,8 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    // allow abolute path imports
+    "gatsby-plugin-root-import",
     // tailwind
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
