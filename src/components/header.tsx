@@ -21,6 +21,7 @@ const Header = ({ siteTitle }) => (
       {siteTitle}
     </Link>
     <img
+      className="h-5"
       alt="Gatsby logo"
       height={20}
       style={{ margin: 0 }}

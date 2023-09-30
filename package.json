@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "leelas-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Beatiful leelas for roopdhyan",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Pranay Pant",
   "dependencies": {
     "@loadable/component": "^5.15.3",
     "gatsby": "^5.12.4",
@@ -15,15 +15,22 @@
     "quill": "^1.3.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "@types/loadable__component": "^5.13.5",
+    "eslint": "^8.50.0",
+    "eslint-config-react-app": "^7.0.1",
+    "gatsby-plugin-root-import": "^2.0.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -31,7 +38,10 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --fix",
+    "stage": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -39,5 +49,15 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "bash -c 'npm run typecheck'",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write"
+    ]
   }
 }
