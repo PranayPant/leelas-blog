@@ -24,6 +24,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <script src="https://leelas-blog-auth-local.auth.us-east-1.amazoncognito.com/null/null/js/amazon-cognito-advanced-security-data.min.js"></script>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
