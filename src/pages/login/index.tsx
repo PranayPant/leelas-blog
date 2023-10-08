@@ -14,9 +14,8 @@ const Login = () => {
       const search = new URL(window.location.href).searchParams
       const code = search.get("code")
       if (!code) throw new Error("invalid code")
-      const token = await getToken(code)
-      const user = await getUser()
-      console.log(token, user)
+      await getToken(code)
+      await getUser()
       window.location.assign(redirectUri || "/")
     } catch (err) {
       window.location.assign("/")
