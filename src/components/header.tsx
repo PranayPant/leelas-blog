@@ -5,7 +5,6 @@ import { useAuthStore } from "store/auth"
 
 const Header = ({ siteTitle }) => {
   const user = useAuthStore(s => s.user)
-  console.log(user)
   return (
     <header
       style={{

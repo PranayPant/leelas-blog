@@ -22,21 +22,21 @@ export async function fetchAccessToken(
 ): Promise<FetchAccessTokenResponse> {
   const endpoint = process.env.GATSBY_COGNITO_AUTH_ENDPOINT as string
   const clientId = process.env.GATSBY_COGNITO_CLIENT_ID as string
-  const redirect_uri = process.env.GATSBY_COGNITO_REDIRECT_URI as string
+  const redirectUri = process.env.GATSBY_COGNITO_REDIRECT_URI as string
   const uri = new URL("/oauth2/token", endpoint).toString()
+  const body = new URLSearchParams()
+  body.append("grant_type", "authorization_code")
+  body.append("client_id", clientId)
+  body.append("redirect_uri", redirectUri)
+  body.append("code", code)
+  body.append("refresh_token", refreshToken || "")
   try {
     const res = await fetch(uri, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify({
-        grant_type: "authorization_code",
-        client_id: clientId,
-        redirect_uri,
-        refresh_token: refreshToken,
-        code,
-      }),
+      body,
     })
     return await res.json()
   } catch (err) {
@@ -47,7 +47,8 @@ export async function fetchAccessToken(
 
 export interface FetchUserInfoResponse {
   email: string
-  fullname: string
+  name: string
+  preferred_username: string
 }
 export async function fetchUserInfo(accessToken: string): Promise<FetchUserInfoResponse> {
   const endpoint = process.env.GATSBY_COGNITO_AUTH_ENDPOINT as string
