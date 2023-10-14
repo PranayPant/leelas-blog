@@ -29,7 +29,7 @@ export const useAuthStore = create(
       authState: RequestState.IDLE,
       expireDate: undefined,
       loginRedirect: () => {
-        set({ pathBeforeLogin: window.location.origin, authState: RequestState.LOADING })
+        set({ pathBeforeLogin: window.location.href, authState: RequestState.LOADING })
         window.location.assign(getAuthorizeEndpoint())
       },
       logout: async () => {
