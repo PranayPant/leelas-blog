@@ -43,6 +43,7 @@ const samplePageLinks = [
   { text: "Server Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
   { text: "React Quill", url: "react-quill" },
+  { text: "Blog Post", url: "blog-post" },
 ]
 
 const moreLinks = [
